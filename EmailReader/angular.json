@@ -128,5 +128,8 @@
       }
     }
   },
-  "defaultProject": "EmailReader"
+  "defaultProject": "EmailReader",
+  "cli": {
+    "analytics": "ce8bbc4b-a01c-4df7-809c-72d79f0b6aa9"
+  }
 }
