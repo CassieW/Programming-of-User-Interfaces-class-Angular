@@ -48,11 +48,20 @@
   </div>
 </form>
 
-<div *ngIf="emailList.length>0">
-  <h3>You have new email! </h3>
+<div *ngIf="emailList.length>0; else noemail">
+  <h3>You have a new email! </h3>
 </div>
 <ul class="list-group">
   <li *ngFor="let e of emailList" class="list-group-item">
-    {{ e.from }}, {{ e.to }}, {{ e.subject }}, {{ e.body }}
+    <p>
+      From: {{ e.from }} <br>
+      To: {{ e.to }} <br>
+      Subject: {{ e.subject }} <br>
+      Body: {{ e.body }} <br>
+    </p>
   </li>
 </ul>
+
+<ng-template #noemail>
+  <p>Your mailbox is empty.</p>
+</ng-template>
