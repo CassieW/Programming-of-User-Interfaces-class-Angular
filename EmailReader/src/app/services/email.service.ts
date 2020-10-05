@@ -42,10 +42,10 @@ export class EmailService {
     return this.emailList;
   }
   deleteEmail(eid: number): number{
-    let email = null;
-    for (email in this.emailList) {
+    for (const email of this.emailList) {
       if (email.id === eid) {
-        return email.id;
+        this.emailList.splice(eid, 1);
+        return eid;
       }
     }
     return -1;

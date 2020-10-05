@@ -12,7 +12,6 @@ import { EmailService } from '../services/email.service';
 export class EmailFormComponent implements OnInit {
 
   email: Email;
-  emailID: number;
   @ViewChild('emailForm') emailForm: any;
   emailList: Email[];
 

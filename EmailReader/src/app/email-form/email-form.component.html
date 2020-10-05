@@ -46,22 +46,3 @@
     <button class="btn btn-primary btn-sm mr-1" type="submit" [disabled]="!emailForm.form.valid">Add to List</button>
   </div>
 </form>
-
-<div *ngIf="emailList.length>0; else noemail">
-  <h3>You have a new email! </h3>
-</div>
-<ul class="list-group">
-  <li *ngFor="let e of emailList" class="list-group-item">
-    <p>
-      ID: {{ e.id }} <br>
-      From: {{ e.from }} <br>
-      To: {{ e.to }} <br>
-      Subject: {{ e.subject }} <br>
-      Body: {{ e.body }} <br>
-    </p>
-  </li>
-</ul>
-
-<ng-template #noemail>
-  <p>Your mailbox is empty.</p>
-</ng-template>

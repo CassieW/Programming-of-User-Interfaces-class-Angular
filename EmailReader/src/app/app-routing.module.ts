@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {EmailContentFormComponent} from './email-content-form/email-content-form.component';
+import {EmailFormComponent} from './email-form/email-form.component';
+import {EmailsListComponent} from './emails-list/emails-list.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: '/twowayexample', pathMatch: 'full' },
-  { path: 'emailcontentform', component: EmailContentFormComponent }
+  { path: 'emailform', component: EmailFormComponent },
+  { path: 'emailslist', component: EmailsListComponent }
 ];
 
 @NgModule({

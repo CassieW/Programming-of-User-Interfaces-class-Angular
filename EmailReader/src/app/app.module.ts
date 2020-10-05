@@ -4,15 +4,19 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { EmailContentFormComponent } from './email-content-form/email-content-form.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule} from '@angular/forms';
 import { HighlightDirective } from './directives/highlight.directive';
+import { EmailFormComponent } from './email-form/email-form.component';
+import { EmailsListComponent } from './emails-list/emails-list.component';
+import { EmailViewerComponent } from './email-viewer/email-viewer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EmailContentFormComponent,
-    HighlightDirective
+    HighlightDirective,
+    EmailFormComponent,
+    EmailsListComponent,
+    EmailViewerComponent
   ],
   imports: [
     BrowserModule,
