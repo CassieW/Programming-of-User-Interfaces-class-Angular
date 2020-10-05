@@ -1,6 +1,6 @@
 <h2>Create New Email</h2>
 
-<form #emailForm="ngForm" (ngSubmit)="sendForm()">
+<form #emailForm="ngForm" (ngSubmit)="email.id = sendForm(email.id)">
 
   <div class="form-group">
     <label> From: </label>
@@ -43,8 +43,7 @@
   </div>
 
   <div class="text-right">
-    <button class="btn btn-primary btn-sm mr-1" type="submit" [disabled]="!emailForm.form.valid">Submit
-      Form</button>
+    <button class="btn btn-primary btn-sm mr-1" type="submit" [disabled]="!emailForm.form.valid">Add to List</button>
   </div>
 </form>
 
@@ -54,6 +53,7 @@
 <ul class="list-group">
   <li *ngFor="let e of emailList" class="list-group-item">
     <p>
+      ID: {{ e.id }} <br>
       From: {{ e.from }} <br>
       To: {{ e.to }} <br>
       Subject: {{ e.subject }} <br>
