@@ -1,48 +1,50 @@
-<h2>Create New Email</h2>
+<div style="padding: 0 10%">
+  <h2>Create New Email</h2>
 
-<form #emailForm="ngForm" (ngSubmit)="email.id = sendForm(email.id)">
+  <form #emailForm="ngForm" (ngSubmit)="email.id = sendForm(email.id)">
 
-  <div class="form-group">
-    <label> From: </label>
-    <input class="form-control" type="text" required [(ngModel)]="email.from" name="efrom" #efrom="ngModel"
-           [ngClass]="efrom.valid || efrom.pristine ? '': 'bg-danger'"
-           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+    <div class="form-group">
+      <label> From: </label>
+      <input class="form-control" type="text" required [(ngModel)]="email.from" name="efrom" #efrom="ngModel"
+             [ngClass]="efrom.valid || efrom.pristine ? '': 'bg-danger'"
+             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
 
-    <div class="alert alert-danger" *ngIf="efrom.touched && !efrom.valid">
-      <div *ngIf="efrom.errors.required">Sender email is required.</div>
-      <div *ngIf="efrom.errors.pattern">Sender email does not match the required pattern.</div>
+      <div class="alert alert-danger" *ngIf="efrom.touched && !efrom.valid">
+        <div *ngIf="efrom.errors.required">Sender email is required.</div>
+        <div *ngIf="efrom.errors.pattern">Sender email does not match the required pattern.</div>
+      </div>
     </div>
-  </div>
 
-  <div class="form-group">
-    <label> To: </label>
-    <input class="form-control" type="text" required [(ngModel)]="email.to" name="eto" #eto="ngModel"
-           [ngClass]="eto.valid || eto.pristine ? '': 'bg-danger'"
-           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+    <div class="form-group">
+      <label> To: </label>
+      <input class="form-control" type="text" required [(ngModel)]="email.to" name="eto" #eto="ngModel"
+             [ngClass]="eto.valid || eto.pristine ? '': 'bg-danger'"
+             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
 
-    <div class="alert alert-danger" *ngIf="eto.touched && !eto.valid">
-      <div *ngIf="eto.errors.required">Recipient email is required.</div>
-      <div *ngIf="eto.errors.pattern">Recipient email does not match the required pattern.</div>
+      <div class="alert alert-danger" *ngIf="eto.touched && !eto.valid">
+        <div *ngIf="eto.errors.required">Recipient email is required.</div>
+        <div *ngIf="eto.errors.pattern">Recipient email does not match the required pattern.</div>
+      </div>
     </div>
-  </div>
 
-  <div class="form-group">
-    <label> Subject: </label>
-    <input class="form-control" type="text" required [(ngModel)]="email.subject" name="esubject" #esubject="ngModel"
-           [ngClass]="esubject.valid || esubject.pristine ? '': 'bg-danger'"
-           maxlength="50">
+    <div class="form-group">
+      <label> Subject: </label>
+      <input class="form-control" type="text" required [(ngModel)]="email.subject" name="esubject" #esubject="ngModel"
+             [ngClass]="esubject.valid || esubject.pristine ? '': 'bg-danger'"
+             maxlength="50">
 
-    <div class="alert alert-danger" *ngIf="esubject.touched && !esubject.valid">
-      <div *ngIf="esubject.errors.required">Subject is required.</div>
+      <div class="alert alert-danger" *ngIf="esubject.touched && !esubject.valid">
+        <div *ngIf="esubject.errors.required">Subject is required.</div>
+      </div>
     </div>
-  </div>
 
-  <div class="form-group">
-    <label> Body: </label>
-    <input class="form-control" type="text" [(ngModel)]="email.body" name="ebody" #ebody="ngModel">
-  </div>
+    <div class="form-group">
+      <label> Body: </label>
+      <input class="form-control" type="text" [(ngModel)]="email.body" name="ebody" #ebody="ngModel">
+    </div>
 
-  <div class="text-right">
-    <button class="btn btn-primary btn-sm mr-1" type="submit" [disabled]="!emailForm.form.valid">Add to List</button>
-  </div>
-</form>
+    <div class="text-right">
+      <button class="btn btn-primary btn-sm mr-1" type="submit" [disabled]="!emailForm.form.valid">Add to List</button>
+    </div>
+  </form>
+</div>
