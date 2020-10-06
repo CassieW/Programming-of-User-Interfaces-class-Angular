@@ -1,1 +1,12 @@
-<p>email-viewer works!</p>
+<ul class="list-group">
+  <h3> Content of Email: {{ eid }} </h3>
+  <p>
+    ID: {{ email.id }} <br>
+    From: {{ email.from }} <br>
+    To: {{ email.to }} <br>
+    Subject: {{ email.subject }} <br>
+    Body: {{ email.body }} <br>
+  </p>
+</ul>
+
+<button class="btn btn-primary btn-sm" (click)="goBack()">Back</button>

@@ -1,24 +1,20 @@
 <div *ngIf="emailList.length>0; else noemail">
   <h3>Mail Inbox</h3>
 </div>
+<div class="text-left">
+  <button class="btn btn-primary btn-sm" (click)="createEmail()">Create Email</button>
+</div>
 <ul class="list-group">
   <li *ngFor="let e of emailList" class="list-group-item">
     <p>
-      ID: {{ e.id }} <br>
-      From: {{ e.from }} <br>
-      To: {{ e.to }} <br>
-      Subject: {{ e.subject }} <br>
-      Body: {{ e.body }} <br>
+      Email number: {{ e.id }} <br>
     </p>
     <div class="text-right">
+      <button class="btn btn-primary btn-sm mr-1" (click)="viewEmail(e.id)" >View Email</button>
       <button class="btn btn-primary btn-sm mr-1" (click)="removeEmail(e.id)">Delete Email</button>
     </div>
   </li>
 </ul>
-
-<div class="text-right">
-  <button class="btn btn-primary btn-sm mr-1" (click)="createEmail()">Create Email</button>
-</div>
 
 <ng-template #noemail>
   <p>Your mailbox is empty.</p>

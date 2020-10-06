@@ -1,4 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
+import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
+import { Location } from '@angular/common';
 import { Email } from '../interfaces/email';
 import { EmailService } from '../services/email.service';
 
@@ -12,17 +14,30 @@ export class EmailsListComponent implements OnInit {
   email: Email;
   @ViewChild('emailsList') emailsList: any;
   emailList: Email[];
+  eidvalue: string;
 
-  constructor(private emailService: EmailService) {
-    this.emailList = [];
-  }
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private emailService: EmailService) {
+              this.emailList = [];
+              }
 
   ngOnInit(): void {
     this.emailList = this.emailService.getEmailList();
   }
 
-  createEmail() {
-    //route to emailForm
+  createEmail(): void {
+    this.router.navigate(['/emailform', {}]);
+  }
+
+  viewEmail(i: number): void {
+    const email = this.emailService.getEmailbyID(i);
+    if (email) {
+      this.eidvalue = String(i);
+      this.router.navigate([`/emailviewer/${this.eidvalue}`, {}]);
+    } else {
+      window.alert('Email does not exist.');
+    }
   }
 
   removeEmail(i: number): void {

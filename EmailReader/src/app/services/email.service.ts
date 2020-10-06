@@ -22,13 +22,14 @@ export class EmailService {
 
   getEmailbyID(a: number): Email {
     let email = null;
-    for (email in this.emailList) {
+    for (email of this.emailList) {
       if (email.id === a) {
         return email;
       }
     }
     return email;
   }
+
   addEmail(eid: number, efrom: string, eto: string, esubject: string, ebody: string): Array<Email>{
     const newEmail = { id: null, from: '', to: '', subject: '', body: 'No email body.' };
     newEmail.id = eid;
@@ -41,9 +42,14 @@ export class EmailService {
     this.emailList.push(newEmail);
     return this.emailList;
   }
+
   deleteEmail(eid: number): number{
     for (const email of this.emailList) {
       if (email.id === eid) {
+        // in case of last email in the list, spilce() does not work as intended
+        if (this.emailList.length === 1) {
+          this.emailList.pop();
+        }
         this.emailList.splice(eid, 1);
         return eid;
       }
@@ -51,41 +57,3 @@ export class EmailService {
     return -1;
   }
 }
-
-
-
-
-
-//   constructor() {
-//     this.results = [];
-//   }
-//
-//   add(a: number, b: number): number {
-//     const res: number = a + b;
-//     this.results.push(a + "+" + b + " = " + res);
-//     return res;
-//   }
-//   sub(a: number, b: number): number {
-//     const res = a - b;
-//     this.results.push(a + "-" + b + " = " + res);
-//     return res;
-//   }
-//   mul(a: number, b: number): number {
-//     const res = a * b;
-//     this.results.push(a + "*" + b + " = " + res);
-//     return res;
-//   }
-//   div(a: number, b: number): number {
-//     const res = a / b;
-//     this.results.push(a + "/" + b + " = " + res);
-//     return res;
-//   }
-//
-//   getresults(): Array<string> {
-//     return this.results;
-//   }
-//
-//   clean(): void {
-//     this.results = [];
-//   }
-// }
